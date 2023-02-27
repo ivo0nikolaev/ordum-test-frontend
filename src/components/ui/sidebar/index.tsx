@@ -2,7 +2,7 @@ import { PlusCircle } from "react-feather";
 
 function Sidebar() {
   return (
-    <div className="w-12 md:w-20 h-full border-r border-black bg-white absolute">
+    <div className="stiky top-0 w-12 md:w-20 h-full border-r border-black bg-white absolute">
       <ul className="relative grid content-center content-center gap-2 md:gap-4 pt-2 pl-1.5 md:pt-6 md:px-5">
         <li className="relative">
         <div className="">

@@ -109,7 +109,7 @@ const CreateTeamPrifile = () => {
               <img src={Twitter} alt="Discord" />{" "}
               <input
                 className="ml-5 w-full text-sm bg-white placeholder:font-italitc border border-black rounded py-2 pl-4 pr-4 focus:outline-none"
-                placeholder="Twitter"
+                placeholder="Discord"
                 type="text"
               />
             </div>
@@ -125,7 +125,7 @@ const CreateTeamPrifile = () => {
               <GitHub size="40"/>
               <input
                 className="ml-5 w-full text-sm bg-white placeholder:font-italitc border border-black rounded py-2 pl-4 pr-4 focus:outline-none"
-                placeholder="Twitter"
+                placeholder="Github"
                 type="text"
               />
             </div>
@@ -137,8 +137,11 @@ const CreateTeamPrifile = () => {
                 type="text"
               />
             </div>
-            <button className="mt-10 border bg-black text-white w-full text-lg ">Save and close</button>
+            <Link to="/addteammembers">
+            <button className="mt-10 border bg-black text-white w-full text-lg mb-12">Save and close</button>
+            </Link>
           </div>
+          
         </div>
       </div>
     </div>

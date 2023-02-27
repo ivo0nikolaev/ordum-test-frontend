@@ -2,7 +2,7 @@ import SearchIcon from "../../../../assets/svg-icons/search-icon.svg";
 
 function SearchBar() {
   return (
-    <div className="xl:w-96">
+    <div className="xl:w-80 -mt-1">
       <form>
         <label className="relative block">
           <span className="absolute inset-y-0 left-0 flex items-center pl-3">

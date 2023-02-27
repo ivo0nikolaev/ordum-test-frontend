@@ -14,6 +14,72 @@ const HomePage = () => {
         <div>
         <p>User: {user?.name}</p>
       <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p> <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p> <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p> <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+      <p>User Wallet: {user?.wallet}</p>
+
       </div> :
       <p>User not logged</p>
       }
