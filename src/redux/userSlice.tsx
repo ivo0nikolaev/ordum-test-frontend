@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface UserState {
   user: {
-    isLogged: boolean;
+    isLogged: any;
     name: string;
     wallet: string;
   };
