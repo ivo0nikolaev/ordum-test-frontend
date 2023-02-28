@@ -55,7 +55,7 @@ function Header() {
           <SearchBar/>
           <div className="flex gap-5">
           <Link to="/notifications"><img src={BellIcon} alt="Notifications" className="hover:cursor-pointer"/></Link>
-          <Link to="/teamprofile"><img src={UserIcon} alt="User page" className="hover:cursor-pointer"/></Link>
+          <Link to="/profile"><img src={UserIcon} alt="User page" className="hover:cursor-pointer"/></Link>
           <Link to="Settings"><img src={SettingsIcon} alt="Settings page" className="hover:cursor-pointer"/></Link>
           </div>
         </div>
