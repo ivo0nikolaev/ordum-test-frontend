@@ -9,81 +9,13 @@ const HomePage = () => {
   return (
     <div className="flex flex-col">
       <h1>Home Page</h1>
-      {
-        user.isLogged ?
+      {user.isLogged ? (
         <div>
-        <p>User: {user?.name}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p> <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p> <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p> <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-      <p>User Wallet: {user?.wallet}</p>
-
-      </div> :
-      <p>User not logged</p>
-      }
-      
+          <p>User: {user?.name}</p>
+        </div>
+      ) : (
+        <p>User not logged</p>
+      )}
     </div>
   );
 };

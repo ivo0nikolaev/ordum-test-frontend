@@ -25,7 +25,7 @@ function Header() {
             className="ml-2 md:ml-12 flex items-center md:text-lg"
             id="navbarSupportedContentY"
           >
-            <ul className="navbar-nav grid grid-cols-3 gap-2 md:gap-6">
+            <ul className="navbar-nav grid grid-cols-4 gap-2 md:gap-6">
               <li className="nav-item">
                 <Link to="/">
                   <a
@@ -59,6 +59,18 @@ function Header() {
                     data-mdb-ripple-color="light"
                   >
                     Teams
+                  </a>
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/ksmindexing">
+                  <a
+                    className="-ml-0.5 md:-ml-0 nav-link block hover:text-gray-700 hover:underline transition duration-150 ease-in-out"
+                    href="#!"
+                    data-mdb-ripple="true"
+                    data-mdb-ripple-color="light"
+                  >
+                    KSM
                   </a>
                 </Link>
               </li>

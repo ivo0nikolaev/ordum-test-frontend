@@ -15,6 +15,7 @@ import SignUpWallet from "./pages/SignUp/signUpWallet";
 import CreateTeamPrifile from "./pages/CreateTeamProfile";
 import TeamProfile from "./pages/TeamProfile";
 import AddTeamMembers from "./pages/AddTeammembers";
+import KusamaIndexing from "./pages/KusamaIndexing";
 
 function App() {
   const { user } = useSelector((state: RootState) => state.user);
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/profile" element={<TeamProfile />} />
                 <Route path="/profile/teamprofile" element={<TeamProfile />} />
                 <Route path="/settings" element={<Settings />} />
+                <Route path="/ksmindexing" element={<KusamaIndexing />} />
               </Routes>
             </div>
             </div>
