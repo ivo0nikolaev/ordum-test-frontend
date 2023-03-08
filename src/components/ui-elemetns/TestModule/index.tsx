@@ -1,11 +1,23 @@
+import React from "react";
 import { useState } from "react";
 import ReactModal from "react-modal";
 
-const TestModal = () => {
-  const [modalState, setModalState] = useState(true);
+const TestModal: React.FC<{
+  children: string | JSX.Element | JSX.Element[];
+  // openModal: () => void | boolean;
+}> = (props) => {
+  const [modalState, setModalState] = useState(false);
 
-  function closeModal() {
-    setModalState(false);
+  const closeHandler = () => {
+    setModalState(false)
+  }
+
+  const openHandler = () => {
+    setModalState(true)
+  }
+
+  const setModal = () => {
+    setModalState(!modalState);
   }
 
   return (
@@ -14,16 +26,14 @@ const TestModal = () => {
       style={{
         overlay: {
           position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
           backgroundColor: "rgba(255, 255, 255, 0.80)",
         },
         content: {
           position: "absolute",
-          top: "40px",
-          left: "40px",
+          width: "420px",
+          height: "420px",
+          top: "6vh",
+          left: "75vw",
           right: "40px",
           bottom: "40px",
           border: "1px solid #ccc",
@@ -36,10 +46,12 @@ const TestModal = () => {
         },
       }}
     >
-      <p>123</p>
-      <button className=" border-2 p-2" onClick={closeModal}>
-        Close
-      </button>
+      <div className="">
+        <button className="ml-80 border-2 p-2" onClick={closeHandler}>
+          Close
+        </button>
+        <div className="mt-2">{props.children}</div>
+      </div>
     </ReactModal>
   );
 };
