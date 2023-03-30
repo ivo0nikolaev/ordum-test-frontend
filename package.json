@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@kiltprotocol/sdk-js": "^0.31.0",
+    "@polkadot/extension-dapp": "^0.45.4",
     "@reduxjs/toolkit": "^1.9.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -22,7 +22,6 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
-    "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
@@ -50,6 +49,14 @@
     ]
   },
   "devDependencies": {
-    "tailwindcss": "^3.2.6"
+    "@727-ventures/typechain-compiler": "^0.5.16",
+    "@727-ventures/typechain-types": "^0.0.22",
+    "@polkadot/api": "^9.13.4",
+    "@polkadot/api-contract": "^9.13.4",
+    "@polkadot/keyring": "^10.4.2",
+    "@types/bn.js": "^5.1.0",
+    "tailwindcss": "^3.2.6",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
   }
 }
