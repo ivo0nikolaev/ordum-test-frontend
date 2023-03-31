@@ -34,7 +34,7 @@ export const enablePolkadotExtension = async (): Promise<void> => {
 // Get list of accounts
 
 //Fix the any
-const getAccounts = async (): Promise<any[]> => {
+const getAccounts = async (): Promise<InjectedAccountWithMeta[]> => {
   await enablePolkadotExtension();
   // console.log(await web3Accounts())
   return await web3Accounts();

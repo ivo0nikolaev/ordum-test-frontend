@@ -1,32 +1,37 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
-
+import { web3FromSource } from "@polkadot/extension-dapp";
 import { getAccounts, getSigner } from "../../wallets/polkadotjs/polkadotjs";
-
+import { Signer } from "@polkadot/types/types";
+import typechain from "../../typechain/index";
 import { ApiPromise, Keyring } from "@polkadot/api";
-import Constructors from "../../typechain-generated/constructors/Ordum_Astar";
+import Constructors from "../../typechain-generated/constructors/Ordum_Astar ";
 import Contract from "../../typechain-generated/contracts/Ordum_Astar";
 import { SetStateAction, useEffect, useState } from "react";
+import type { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
+
 
 const HomePage = () => {
   useEffect(() => {
     async function getPJS() {
       let i = await getAccounts();
+      console.log(i[0]);
       //@ts-ignore
       setWallets(i);
-      setWallet(i[0].address);
+      setWallet(i[0]);
     }
     getPJS();
   }, []);
 
   const [checked, setChecked] = useState(0);
-  const [wallets, setWallets] = useState([]);
-  const [wallet, setWallet] = useState("");
+  const [wallets, setWallets] = useState<InjectedAccountWithMeta[]>([]);
+  const [wallet, setWallet] = useState<InjectedAccountWithMeta>();
   const [teamName, setTeamName] = useState("");
   const [teamDescription, setteamDescription] = useState("");
   const [teamSize, setTeamSize] = useState("1");
+  const [signer, setSigner] = useState("")
 
-  console.log(wallets);
+  
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const enteredValue = event.target.value;
     setTeamName(enteredValue);
@@ -42,6 +47,15 @@ const HomePage = () => {
   const handleTeamSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const enteredValue = event.target.value;
     setTeamSize(enteredValue);
+  };
+  //@ts-ignore
+   const callTypechain =  async (addr:InjectedAccountWithMeta) => {
+    
+    console.log("Addr: +" + addr)
+    let Signer = await web3FromSource(addr.meta.source);
+    
+    //@ts-ignore
+    typechain(Signer);
   };
 
   // const { user } = useSelector((state) => state.user);
@@ -85,6 +99,7 @@ const HomePage = () => {
                         //@ts-ignore
                         wallet
                       );
+                      //@ts-ignore
                       setChecked(i);
                     }}
                   >
@@ -156,6 +171,10 @@ const HomePage = () => {
               <button
                 className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                 type="button"
+                onClick={
+                  //@ts-ignore
+                  () => (callTypechain(wallet))
+                }
               >
                 Add profile
               </button>
