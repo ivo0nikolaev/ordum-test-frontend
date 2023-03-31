@@ -60,7 +60,7 @@ const HomePage = () => {
       )} */}
       <div>
         <p> Select an account</p>
-        <div className="flex flex-col m-2 p-1 border  ">
+        <div className="flex flex-col m-2">
           {
             //@ts-igonre
             wallets.length === 0 ? (
@@ -72,17 +72,11 @@ const HomePage = () => {
               //@ts-igonre
               wallets.map((wallet, i) => (
                 //@ts-ignore
-                <div className="mt-1">
-                  <input
-                    className="mr-2"
-                    type="radio"
-                    value={
-                      //@ts-ignore
-                      wallet.address
-                    }
+                <ul className="mt-1">
+                  <p
+                    className="mr-2  p-1 border hover:cursor-pointer hover:bg-sky-100"
                     key={i}
-                  
-                    onChange={() => {
+                    onClick={() => {
                       setWallet(
                         //@ts-ignore
                         wallet.address
@@ -93,14 +87,13 @@ const HomePage = () => {
                       );
                       setChecked(i);
                     }}
-                  />
-                  <label>
+                  >
                     {
                       //@ts-ignore
                       wallet.meta.name
                     }
-                  </label>
-                </div>
+                  </p>
+                </ul>
               ))
             )
           }

@@ -8,8 +8,8 @@ import {
 import { stringToHex } from "@polkadot/util";
 
 import type { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
-import { Obj } from "reselect/es/types";
-import { InvalidatedProjectKind } from "typescript";
+
+let SENDER = "";
 
 // Checking if extensaion is intalled
 
@@ -33,35 +33,38 @@ export const enablePolkadotExtension = async (): Promise<void> => {
 
 // Get list of accounts
 
-//Fix the any 
-const getAccounts = async (): Promise<any[]> =>{
-    await enablePolkadotExtension();
-    // console.log(await web3Accounts())
-    return await web3Accounts();
-}
-
+//Fix the any
+const getAccounts = async (): Promise<any[]> => {
+  await enablePolkadotExtension();
+  // console.log(await web3Accounts())
+  return await web3Accounts();
+};
 
 // Sellect an account - done if FE
 
-// Get a signer
+// Get a signer signature
 
-    const getSigner = async (account: Object): Promise<any> =>{
-        //@ts-ignore
-        const injector = await web3FromSource(account.meta.source)
+const getSigner = async (account: Object): Promise<any> => {
+  //@ts-ignore
+  const injector = await web3FromSource(account.meta.source);
+  //@ts-ignore
+  SENDER =  account.address
+  const signRaw = injector?.signer?.signRaw;
 
-        const signRaw = injector?.signer?.signRaw;
+  if (!!signRaw) {
+    // after making sure that signRaw is defined
+    // we can use it to sign our message
+    const { signature } = await signRaw({
+      //@ts-ignore
+      address: account.address,
+      data: stringToHex("Test Ordum sign up with PJS"),
+      type: "bytes",
+    });
+    console.log(signature);
+    return signature;
+  }
+};
 
-        if (!!signRaw) {
-            // after making sure that signRaw is defined
-            // we can use it to sign our message
-            const { signature } = await signRaw({
-                //@ts-ignore
-                address: account.address,
-                data: stringToHex('message to sign'),
-                type: 'bytes'
-            });
-        }
-    }
+// Sign a transaction
 
- export  {getAccounts, getSigner}
-
+export { getAccounts, getSigner };
