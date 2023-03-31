@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
-import PolkaotJS from "../../wallets/polkadotjs/polkadotjs";
+import { getAccounts, getSigner } from "../../wallets/polkadotjs/polkadotjs";
 
 import { ApiPromise, Keyring } from "@polkadot/api";
 import Constructors from "../../typechain-generated/constructors/Ordum_Astar";
@@ -11,7 +11,7 @@ import { SetStateAction, useEffect, useState } from "react";
 const HomePage = () => {
   useEffect(() => {
     async function getPJS() {
-      let i = await PolkaotJS();
+      let i = await getAccounts();
       //@ts-ignore
       setWallets(i);
       setWallet(i[0].address);
@@ -26,7 +26,7 @@ const HomePage = () => {
   const [teamDescription, setteamDescription] = useState("");
   const [teamSize, setTeamSize] = useState("1");
 
-  console.log("Wallet: " + typeof wallet);
+  console.log(wallets);
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const enteredValue = event.target.value;
     setTeamName(enteredValue);
@@ -65,8 +65,8 @@ const HomePage = () => {
             //@ts-igonre
             wallets.length === 0 ? (
               <div>
-              <p>You don't seem to have PolkadotJS installed. </p>
-              <p>Please install it and make create a wallet </p>
+                <p>You don't seem to have PolkadotJS installed. </p>
+                <p>Please install it and make create a wallet </p>
               </div>
             ) : (
               //@ts-igonre
@@ -81,11 +81,15 @@ const HomePage = () => {
                       wallet.address
                     }
                     key={i}
-                    checked={checked === i ? true : false}
+                  
                     onChange={() => {
                       setWallet(
                         //@ts-ignore
                         wallet.address
+                      );
+                      getSigner(
+                        //@ts-ignore
+                        wallet
                       );
                       setChecked(i);
                     }}
@@ -93,7 +97,7 @@ const HomePage = () => {
                   <label>
                     {
                       //@ts-ignore
-                      wallet.address
+                      wallet.meta.name
                     }
                   </label>
                 </div>
