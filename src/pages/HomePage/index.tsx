@@ -41,7 +41,7 @@ const HomePage = () => {
     async function getPJS() {
       let i = await getAccounts();
     // Consider adding a way to select the accounts using the UI and use it to setWallet 
-      
+      // As at the moment we are kinda selecting account index 1 to be used , this should be selected using the UI
       setWallets(i);
       setWallet(i[1]);
       console.log(i[1].address)
@@ -70,8 +70,9 @@ const HomePage = () => {
     setTeamSize(enteredValue);
   };
 
+  // We can now use contract object to interact with the contract functionalities
   
-  
+  // Hard coded example, the parameters needs to be derived from the inputs
   const CreateIssuer = async() =>{
       await contract?.tx.createIssuerProfile(
         "Ordum",

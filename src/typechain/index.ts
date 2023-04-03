@@ -6,6 +6,8 @@ import type { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
 
 // Initializing the contract code
 async function main(account:string|any) {
+
+  // We are getting the account from injected account and creating a pair to sign directly
   // Connect to the local node || change to shibuya later
   const api = await ApiPromise.create();
   const keyring = new Keyring();
@@ -13,9 +15,8 @@ async function main(account:string|any) {
 
 
   //To-do
-  //1. updating functionality for ordum contract id
   const contract = new Contract("5F4E4BPoUk3JjSCMPrzCJZS29xAUWzyGkppR2nVSug14Fb6E", keyPair, api);
-  //const query = await contract.query.getIssuerProfile();
+  
   
   return contract;
 // main().then(() => {
