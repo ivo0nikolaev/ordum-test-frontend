@@ -60,7 +60,7 @@ const getSigner = async (account: Object): Promise<any> => {
       data: stringToHex("Test Ordum sign up with PJS"),
       type: "bytes",
     });
-    console.log(signature);
+    
     return signature;
   }
 };

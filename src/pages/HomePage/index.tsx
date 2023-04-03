@@ -5,31 +5,52 @@ import { getAccounts, getSigner } from "../../wallets/polkadotjs/polkadotjs";
 import { Signer } from "@polkadot/types/types";
 import typechain from "../../typechain/index";
 import { ApiPromise, Keyring } from "@polkadot/api";
-import Constructors from "../../typechain-generated/constructors/Ordum_Astar ";
 import Contract from "../../typechain-generated/contracts/Ordum_Astar";
 import { SetStateAction, useEffect, useState } from "react";
 import type { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
+import { Categories, Chains } from "../../typechain-generated/types-arguments/Ordum_Astar";
 
 
 const HomePage = () => {
-  useEffect(() => {
-    async function getPJS() {
-      let i = await getAccounts();
-      console.log(i[0]);
-      //@ts-ignore
-      setWallets(i);
-      setWallet(i[0]);
-    }
-    getPJS();
-  }, []);
+
 
   const [checked, setChecked] = useState(0);
   const [wallets, setWallets] = useState<InjectedAccountWithMeta[]>([]);
   const [wallet, setWallet] = useState<InjectedAccountWithMeta>();
-  const [teamName, setTeamName] = useState("");
-  const [teamDescription, setteamDescription] = useState("");
-  const [teamSize, setTeamSize] = useState("1");
+  const [teamName, setTeamName] = useState<string>("");
+  const [teamDescription, setteamDescription] = useState<string>("");
+  const [teamSize, setTeamSize] = useState<number>();
   const [signer, setSigner] = useState("")
+  const [contract, setContract] = useState<Contract>();
+
+
+ 
+
+  console.log("wallet" + wallet?.address);
+  
+  const callTypechain =  async (addr:string|any) => {
+    
+    console.log("Addr: +" + addr.meta)
+    
+    await typechain(addr).then((contract) => {
+        setContract(contract)
+    }).catch(err => console.log(err))
+  };
+  
+  useEffect(() => {
+    async function getPJS() {
+      let i = await getAccounts();
+    // Consider adding a way to select the accounts using the UI and use it to setWallet 
+      
+      setWallets(i);
+      setWallet(i[1]);
+      console.log(i[1].address)
+      await callTypechain(i[1]?.address)
+    }
+    getPJS();
+  }, []);
+ 
+  // consider handling the form as one object
 
   
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -45,18 +66,25 @@ const HomePage = () => {
   };
 
   const handleTeamSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const enteredValue = event.target.value;
+    const enteredValue:number = +event.target.value;
     setTeamSize(enteredValue);
   };
-  //@ts-ignore
-   const callTypechain =  async (addr:InjectedAccountWithMeta) => {
-    
-    console.log("Addr: +" + addr)
-    let Signer = await web3FromSource(addr.meta.source);
-    
-    //@ts-ignore
-    typechain(Signer);
-  };
+
+  
+  
+  const CreateIssuer = async() =>{
+      await contract?.tx.createIssuerProfile(
+        "Ordum",
+        Chains.polkadot,
+        [Categories.publicGood],
+        "We are pirates",
+        []
+      );
+  }
+
+  contract?.events.subscribeOnIssuerAccountCreatedEvent((event)=>{
+    console.log(event)
+  })
 
   // const { user } = useSelector((state) => state.user);
   // const { user } = useSelector((state: RootState) => state.user);
@@ -95,10 +123,7 @@ const HomePage = () => {
                         //@ts-ignore
                         wallet.address
                       );
-                      getSigner(
-                        //@ts-ignore
-                        wallet
-                      );
+                      
                       //@ts-ignore
                       setChecked(i);
                     }}
@@ -173,7 +198,7 @@ const HomePage = () => {
                 type="button"
                 onClick={
                   //@ts-ignore
-                  () => (callTypechain(wallet))
+                  () => (CreateIssuer())
                 }
               >
                 Add profile
