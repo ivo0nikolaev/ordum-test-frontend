@@ -9,7 +9,7 @@ import Contract from "../../typechain-generated/contracts/Ordum_Astar";
 import { SetStateAction, useEffect, useState } from "react";
 import type { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
 import { Categories, Chains } from "../../typechain-generated/types-arguments/Ordum_Astar";
-
+import { ContractPromise } from "@polkadot/api-contract";
 
 const HomePage = () => {
 
@@ -21,7 +21,7 @@ const HomePage = () => {
   const [teamDescription, setteamDescription] = useState<string>("");
   const [teamSize, setTeamSize] = useState<number>();
   const [signer, setSigner] = useState("")
-  const [contract, setContract] = useState<Contract>();
+  const [contract, setContract] = useState<ContractPromise>();
 
 
  
@@ -73,19 +73,9 @@ const HomePage = () => {
   // We can now use contract object to interact with the contract functionalities
   
   // Hard coded example, the parameters needs to be derived from the inputs
-  const CreateIssuer = async() =>{
-      await contract?.tx.createIssuerProfile(
-        "Ordum",
-        Chains.polkadot,
-        [Categories.publicGood],
-        "We are pirates",
-        []
-      );
-  }
+ console.log(contract?.address)
 
-  contract?.events.subscribeOnIssuerAccountCreatedEvent((event)=>{
-    console.log(event)
-  })
+  
 
   // const { user } = useSelector((state) => state.user);
   // const { user } = useSelector((state: RootState) => state.user);
