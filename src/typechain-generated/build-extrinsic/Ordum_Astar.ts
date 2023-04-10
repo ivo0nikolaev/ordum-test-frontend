@@ -21,26 +21,6 @@ export default class Methods {
 		this.__apiPromise = apiPromise;
 	}
 	/**
-	 * getIssuerProfile
-	 *
-	*/
-	"getIssuerProfile" (
-		__options: GasLimit,
-	){
-		return buildSubmittableExtrinsic( this.__apiPromise, this.__nativeContract, "getIssuerProfile", [], __options);
-	}
-
-	/**
-	 * getApplicantProfile
-	 *
-	*/
-	"getApplicantProfile" (
-		__options: GasLimit,
-	){
-		return buildSubmittableExtrinsic( this.__apiPromise, this.__nativeContract, "getApplicantProfile", [], __options);
-	}
-
-	/**
 	 * createApplicantProfile
 	 *
 	 * @param { string } name,

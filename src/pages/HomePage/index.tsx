@@ -5,11 +5,13 @@ import { getAccounts, getSigner } from "../../wallets/polkadotjs/polkadotjs";
 import { Signer } from "@polkadot/types/types";
 import typechain from "../../typechain/index";
 import { ApiPromise, Keyring } from "@polkadot/api";
-import Contract from "../../typechain-generated/contracts/Ordum_Astar";
 import { SetStateAction, useEffect, useState } from "react";
 import type { InjectedAccountWithMeta } from "@polkadot/extension-inject/types";
 import { Categories, Chains } from "../../typechain-generated/types-arguments/Ordum_Astar";
 import { ContractPromise } from "@polkadot/api-contract";
+import metadata from "../../components/metadata/Ordum_Astar.json"
+import Contract from "../../typechain-generated/contracts/Ordum_Astar";
+
 
 const HomePage = () => {
 
@@ -21,22 +23,8 @@ const HomePage = () => {
   const [teamDescription, setteamDescription] = useState<string>("");
   const [teamSize, setTeamSize] = useState<number>();
   const [signer, setSigner] = useState("")
-  const [contract, setContract] = useState<ContractPromise>();
+  const [contract, setContract] = useState<Contract>();
 
-
- 
-
-  console.log("wallet" + wallet?.address);
-  
-  const callTypechain =  async (addr:string|any) => {
-    
-    console.log("Addr: +" + addr.meta)
-    
-    await typechain(addr).then((contract) => {
-        setContract(contract)
-    }).catch(err => console.log(err))
-  };
-  
   useEffect(() => {
     async function getPJS() {
       let i = await getAccounts();
@@ -44,11 +32,43 @@ const HomePage = () => {
       // As at the moment we are kinda selecting account index 1 to be used , this should be selected using the UI
       setWallets(i);
       setWallet(i[1]);
-      console.log(i[1].address)
-      await callTypechain(i[1]?.address)
+      
+      await callTypechain(i[1]);
+      
     }
     getPJS();
+    
   }, []);
+
+ 
+
+  
+  const callTypechain =  async (account:InjectedAccountWithMeta|any) => {
+    
+    await typechain(account).then((contract) => {
+        setContract(contract)
+    }).catch(err => console.log(`Error: ${err}`))
+  };
+ 
+  /*****TO DO*****************TO DO*******************TO DO****************** */
+
+  //*************************TEST 1*********************************** */
+  // Testing a tx with default signer
+  const CreateIssuer = async() =>{
+    await contract?.tx.createIssuerProfile(
+      "Ordum",
+      Chains.polkadot,
+      [Categories.publicGood],
+      "We are pirates",
+      []
+    );
+}
+
+contract?.events.subscribeOnIssuerAccountCreatedEvent((event)=>{
+  console.log(event)
+})
+  //************************** TEST 1 END ************************************ */
+ 
  
   // consider handling the form as one object
 
@@ -70,11 +90,7 @@ const HomePage = () => {
     setTeamSize(enteredValue);
   };
 
-  // We can now use contract object to interact with the contract functionalities
   
-  // Hard coded example, the parameters needs to be derived from the inputs
- console.log(contract?.address)
-
   
 
   // const { user } = useSelector((state) => state.user);

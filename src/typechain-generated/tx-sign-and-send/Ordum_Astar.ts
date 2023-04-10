@@ -29,30 +29,6 @@ export default class Methods {
 	}
 
 	/**
-	* getIssuerProfile
-	*
-	*/
-	"getIssuerProfile" (
-		__options ? : GasLimit,
-	){
-		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "getIssuerProfile", (events: EventRecord) => {
-			return decodeEvents(events, this.__nativeContract, EVENT_DATA_TYPE_DESCRIPTIONS);
-		}, [], __options);
-	}
-
-	/**
-	* getApplicantProfile
-	*
-	*/
-	"getApplicantProfile" (
-		__options ? : GasLimit,
-	){
-		return txSignAndSend( this.__apiPromise, this.__nativeContract, this.__keyringPair, "getApplicantProfile", (events: EventRecord) => {
-			return decodeEvents(events, this.__nativeContract, EVENT_DATA_TYPE_DESCRIPTIONS);
-		}, [], __options);
-	}
-
-	/**
 	* createApplicantProfile
 	*
 	* @param { string } name,

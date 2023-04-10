@@ -2141,7 +2141,7 @@
     "@polkadot/util" "^10.4.2"
     rxjs "^7.8.0"
 
-"@polkadot/api-contract@^9.13.4":
+"@polkadot/api-contract@^9.13.4", "@polkadot/api-contract@>=9.14.0":
   version "9.14.2"
   resolved "https://registry.npmjs.org/@polkadot/api-contract/-/api-contract-9.14.2.tgz"
   integrity sha512-gAAHEh+tOIKuAJWxbAuB8Imo+Z8s0FHdICN6/q4JOxBhONJNA9beHB4wmqWSKvYqYmWrJvtv3HensLaITzAcrQ==
@@ -2171,7 +2171,7 @@
     "@polkadot/util-crypto" "^10.4.2"
     rxjs "^7.8.0"
 
-"@polkadot/api@*", "@polkadot/api@^9.13.4", "@polkadot/api@^9.13.6", "@polkadot/api@>6.3.1", "@polkadot/api@9.14.2":
+"@polkadot/api@*", "@polkadot/api@^9.13.4", "@polkadot/api@^9.13.6", "@polkadot/api@>=9.14.0", "@polkadot/api@>6.3.1", "@polkadot/api@9.14.2":
   version "9.14.2"
   resolved "https://registry.npmjs.org/@polkadot/api/-/api-9.14.2.tgz"
   integrity sha512-R3eYFj2JgY1zRb+OCYQxNlJXCs2FA+AU4uIEiVcXnVLmR3M55tkRNEwYAZmiFxx0pQmegGgPMc33q7TWGdw24A==
@@ -2194,7 +2194,7 @@
     eventemitter3 "^5.0.0"
     rxjs "^7.8.0"
 
-"@polkadot/extension-dapp@^0.45.4":
+"@polkadot/extension-dapp@^0.45.4", "@polkadot/extension-dapp@>=0.44.0":
   version "0.45.5"
   resolved "https://registry.npmjs.org/@polkadot/extension-dapp/-/extension-dapp-0.45.5.tgz"
   integrity sha512-Cum/O+IAQE4QnjMIkV472g3j5bN8d6KMJn4Wyn69vfIvv8y2ma2IlseQHGVegZNf/0uHfJNYomX5J8qu0JJvsQ==
@@ -2204,7 +2204,7 @@
     "@polkadot/util-crypto" "^11.1.3"
     tslib "^2.5.0"
 
-"@polkadot/extension-inject@^0.45.5":
+"@polkadot/extension-inject@^0.45.5", "@polkadot/extension-inject@>=0.44.0":
   version "0.45.5"
   resolved "https://registry.npmjs.org/@polkadot/extension-inject/-/extension-inject-0.45.5.tgz"
   integrity sha512-dmHF0Ttmyv2FQaRcopMlGXODvrlCXUU2Tfc67NB5qicye1YIdOs3MR0/vxEDEz7NiwpTXLQFPccpEu5UxtkECg==
@@ -2437,7 +2437,7 @@
     rxjs "^7.8.0"
     tslib "^2.5.0"
 
-"@polkadot/types@^9.13.6", "@polkadot/types@9.14.2":
+"@polkadot/types@^9.13.6", "@polkadot/types@>=9.14.0", "@polkadot/types@9.14.2":
   version "9.14.2"
   resolved "https://registry.npmjs.org/@polkadot/types/-/types-9.14.2.tgz"
   integrity sha512-hGLddTiJbvowhhUZJ3k+olmmBc1KAjWIQxujIUIYASih8FQ3/YJDKxaofGOzh0VygOKW3jxQBN2VZPofyDP9KQ==
@@ -2484,7 +2484,7 @@
     tslib "^2.5.0"
     tweetnacl "^1.0.3"
 
-"@polkadot/util@*", "@polkadot/util@^10.3.1", "@polkadot/util@^10.4.2", "@polkadot/util@10.4.2":
+"@polkadot/util@*", "@polkadot/util@^10.3.1", "@polkadot/util@^10.4.2", "@polkadot/util@>=10.4.0", "@polkadot/util@10.4.2":
   version "10.4.2"
   resolved "https://registry.npmjs.org/@polkadot/util/-/util-10.4.2.tgz"
   integrity sha512-0r5MGICYiaCdWnx+7Axlpvzisy/bi1wZGXgCSw5+ZTyPTOqvsYRqM2X879yxvMsGfibxzWqNzaiVjToz1jvUaA==
@@ -2791,6 +2791,11 @@
   version "1.2.0"
   resolved "https://registry.npmjs.org/@rushstack/eslint-patch/-/eslint-patch-1.2.0.tgz"
   integrity sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==
+
+"@scio-labs/use-inkathon@^0.0.1-alpha.37":
+  version "0.0.1-alpha.37"
+  resolved "https://registry.npmjs.org/@scio-labs/use-inkathon/-/use-inkathon-0.0.1-alpha.37.tgz"
+  integrity sha512-H7DXPShkP0RwU98crqKOl6GZgXuuW8/BrE9BW8TiQd8QPgNEzZ1rI6k0n23IVT4xhXUCjLosslq2fhIE8XafWQ==
 
 "@scure/base@1.1.1":
   version "1.1.1"
@@ -10177,7 +10182,7 @@ react-dev-utils@^12.0.1:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-"react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18", "react-dom@^16.8 || ^17.0 || ^18.0", react-dom@^18.0.0, react-dom@^18.2.0, react-dom@>=16.8:
+"react-dom@^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18", "react-dom@^16.8 || ^17.0 || ^18.0", react-dom@^18.0.0, react-dom@^18.2.0, react-dom@>=16.8, react-dom@>=18.0.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -10319,7 +10324,7 @@ react-scripts@5.0.1:
   optionalDependencies:
     fsevents "^2.3.2"
 
-"react@^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", react@^18.0.0, react@^18.2.0, "react@>= 16", react@>=16.8, react@>=16.8.6:
+"react@^0.14.0 || ^15.0.0 || ^16 || ^17 || ^18", "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17.0.0 || ^18", react@^18.0.0, react@^18.2.0, "react@>= 16", react@>=16.8, react@>=16.8.6, react@>=18.0.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
